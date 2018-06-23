@@ -134,7 +134,9 @@ module.exports = function (grunt, cb) {
 			return acc;
 		}, []);
 
-		tableDataProcessed.push([chalk.magenta('Total', prettyMs(totalTime))]);
+		if (tableDataProcessed.length > 1) {
+			tableDataProcessed.push([chalk.bold('Total'), chalk.bold(prettyMs(totalTime))]);
+		}
 
 		return table(tableDataProcessed, {
 			align: ['l', 'r', 'l'],
